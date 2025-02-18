@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Imagem com Efeito RGB</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 110vh;
+        background: #000000;
+        margin: 0;
+      }
+
+      .rgb-efeito {
+        position: relative;
+        display: inline-block;
+      }
+
+      .rgb-efeito img {
+        display: block;
+        width: 300px;
+        border-radius: 100px;
+      }
+
+      .rgb-efeito::before,
+      .rgb-efeito::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 105%;
+        height: 105%;
+        border-radius: 10px;
+        background: url("/Baki_yujiro.png.webp") center/cover no-repeat;
+        z-index: -50;
+        transition: 0.3s;
+      }
+
+      .rgb-efeito::before {
+        filter: blur(2px) contrast(1.2) brightness(1.1)
+          drop-shadow(0 0 10px rgba(252, 0, 0, 0.92));
+        transform: translate(5px, 5px);
+      }
+
+      .rgb-efeito::after {
+        filter: blur(2px) contrast(1.2) brightness(1.1)
+          drop-shadow(0 0 10px rgba(0, 195, 255, 0.925));
+        transform: translate(-5px, -5px);
+      }
+
+      .rgb-efeito:hover::before {
+        transform: translate(8px, 8px);
+      }
+
+      .rgb-efeito:hover::after {
+        transform: translate(-8px, -8px);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="rgb-efeito">
+      <img
+        src="/Baki_yujiro.png.webp"
+        width="500px"
+        height="250px"
+        alt="Imagem com Efeito RGB"
+        src="sua-imagem.jpg" style="width: 100%; height: 100%;">
+
+      />
+    </div>
+  </body>
+</html>
